@@ -1,0 +1,24 @@
+{
+  "name": "eslint-rule",
+  "version": "1.0.0",
+  "description": "A eslint rule. Limit minimum comment line percentage.",
+  "main": "./lib/rules/",
+  "scripts": {
+    "test": "eslint ./src --rulesdir ./lib/rules"
+  },
+  "keywords": [
+    "eslint",
+    "minimum-comment-lines"
+  ],
+  "author": "mojingzhi",
+  "license": "MIT",
+  "devDependencies": {
+    "cz-conventional-changelog": "3.2.0",
+    "eslint": "^7.3.1"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}
