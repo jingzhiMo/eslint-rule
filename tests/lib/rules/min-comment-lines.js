@@ -62,7 +62,11 @@ ruleTester.run(
     ],
     invalid: [
       {
-        code: 'var xyz;\nvar xyz;\nvar xyz;',
+        code: [
+          'var a',
+          'var b',
+          'var c',
+        ].join('\n'),
         errors: [
           {
             messageId: 'below',
@@ -72,7 +76,64 @@ ruleTester.run(
             }
           }
         ]
-      }
+      },
+      {
+        code: [
+          'var a',
+          'var b',
+          '// comment',
+          'var c',
+          'var d',
+        ].join('\n'),
+        errors: [
+          {
+            messageId: 'below',
+            data: {
+              percentage: '20.00%',
+              minimum: 21
+            }
+          }
+        ],
+        options: [21]
+      },
+      {
+        code: [
+          'var a',
+          'var b',
+          '// comment',
+          'var c',
+          '',
+        ].join('\n'),
+        errors: [
+          {
+            messageId: 'below',
+            data: {
+              percentage: '20.00%',
+              minimum: 21
+            }
+          }
+        ],
+        options: [{ min: 21 }]
+      },
+      {
+        code: [
+          'var a',
+          'var b',
+          '// comment',
+          'var c',
+          '',
+        ].join('\n'),
+        errors: [
+          {
+            messageId: 'below',
+            data: {
+              percentage: '25.00%',
+              minimum: 26
+            }
+          }
+        ],
+        options: [{ skipBlankLines: true, min: 26 }]
+      },
     ]
   }
 )
