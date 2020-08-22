@@ -9,7 +9,8 @@ module.exports = {
   },
   "rules": {
     "min-comment-lines": ["warn", 20],
-    "jsx-props-max-count": ["warn", 10],
+    "jsx-props-max-count": ["warn", 3],
+    // "jsx-props-max-count": ["warn", { max: 3, ignore: ['h1'] }],
     // "min-comment-lines": ["warn", { min: 20, skipBlankLines: false }]
   },
   "env": {
